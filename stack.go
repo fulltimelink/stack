@@ -7,9 +7,6 @@ type Stack[T any] struct {
 	stackSlice []T
 }
 
-// --  @# 内部封装类型
-type stackSlice[T any] []T
-
 // ErrorStackOverflow --  @# 哨兵异常定义
 var ErrorStackOverflow = errors.New("overflow")
 
@@ -42,5 +39,5 @@ func (s *Stack[T]) IsEmpty() bool {
 
 // NewStack --  @# 初始化一个栈
 func NewStack[T any]() Stack[T] {
-	return Stack[T]{stackSlice[T]{}}
+	return Stack[T]{[]T{}}
 }
